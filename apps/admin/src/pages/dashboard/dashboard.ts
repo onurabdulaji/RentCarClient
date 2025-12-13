@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { BreadcrumbService } from '../../services/breadcrumb';
 
 @Component({
   selector: 'app-dashboard',
   imports: [],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css',
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
+  readonly #breadcumb = inject(BreadcrumbService);
 
+  ngOnInit(): void {
+    this.#breadcumb.setDashboard();
+  }
 }

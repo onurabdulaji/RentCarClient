@@ -11,10 +11,11 @@ import {
 import { NavigationModel, navigation } from '../../navigation';
 import { NgClass } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { Breadcrumb } from './breadcrumb/breadcrumb';
 
 @Component({
   selector: 'app-layouts',
-  imports: [NgClass, RouterLink, RouterOutlet],
+  imports: [NgClass, RouterLink, RouterOutlet, Breadcrumb],
   templateUrl: './layouts.html',
 })
 export class Layouts implements OnInit, OnDestroy {
