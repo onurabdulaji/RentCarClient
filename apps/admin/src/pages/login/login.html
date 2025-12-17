@@ -14,7 +14,7 @@
                     <p>Admin paneline erişim için giriş yapın</p>
                 </div>
 
-                <form #form="ngForm" autocomplete="off" class="login-form" (ngSubmit)="login(form)">
+                <form #form="ngForm" formValidate class="login-form" (ngSubmit)="login(form)">
                     <!-- Email Input -->
                     <div class="form-group">
                         <label for="adminEmail" class="form-label">E-posta Adresi yada Kullanici Adi</label>
@@ -24,6 +24,7 @@
                             </span>
                             <input type="text" name="emailOrUserName" ngModel class="form-control" id="adminEmail"
                                 placeholder="kullanici@rentcar.com" required>
+                            <div class="invalid-feedback">Gecerli Bir Email Yada Kullanici Adi Giriniz</div>
                         </div>
                     </div>
 
@@ -39,6 +40,7 @@
                             <button type="button" class="input-group-text password-toggle" data-target="adminPassword">
                                 <i class="bi bi-eye"></i>
                             </button>
+                            <div class="invalid-feedback">Geçerli Bir Şifre Giriniz</div>
                         </div>
                     </div>
 

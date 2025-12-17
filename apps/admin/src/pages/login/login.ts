@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Result } from '../../models/result.model';
 import { Router } from '@angular/router';
+import { FormValidateDirective } from 'form-validate-angular';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, FormValidateDirective],
   templateUrl: './login.html',
 })
 export class Login {
