@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { NavigationModel, navigation } from '../../navigation';
 import { NgClass } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Breadcrumb } from './breadcrumb/breadcrumb';
 
 @Component({
@@ -25,6 +25,7 @@ export class Layouts implements OnInit, OnDestroy {
 
   readonly #elementRef = inject(ElementRef);
   readonly #renderer = inject(Renderer2);
+  readonly #router = inject(Router);
 
   ngOnInit(): void {
     this.initializeSidebar();
@@ -37,6 +38,11 @@ export class Layouts implements OnInit, OnDestroy {
     if (this.resizeTimer) {
       clearTimeout(this.resizeTimer);
     }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.#router.navigateByUrl('/login');
   }
 
   @HostListener('window:resize')

@@ -40,8 +40,7 @@
   <div class="sidebar-footer">
     <div class="user-info">
       <div class="user-avatar">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
           alt="Admin" />
       </div>
       <div class="user-details">
@@ -125,18 +124,15 @@
         <!-- Profile Dropdown -->
         <div class="profile-dropdown">
           <button class="profile-btn" data-bs-toggle="dropdown">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
-              alt="Profile"
-              class="profile-avatar" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
+              alt="Profile" class="profile-avatar" />
             <span class="layout-profile-name">Admin User</span>
             <i class="bi bi-chevron-down"></i>
           </button>
           <ul class="dropdown-menu profile-menu">
             <li class="profile-header">
               <div class="profile-info">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBRW6kw4PvewS5EGHKY7nNsJiWvrbsVIzZA&s"
                   alt="Profile" />
                 <div>
                   <h6>Admin User</h6>
@@ -185,7 +181,8 @@
               <hr class="dropdown-divider" />
             </li>
             <li>
-              <a class="dropdown-item text-danger" href="#">
+              <a (click)="logout()" (keyup.enter)="logout()" tabindex="0" role="button"
+                class="dropdown-item text-danger">
                 <i class="bi bi-box-arrow-right"></i>
                 Çıkış Yap
               </a>
