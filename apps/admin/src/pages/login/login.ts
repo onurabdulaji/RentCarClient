@@ -1,8 +1,15 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormValidateDirective } from 'form-validate-angular';
 import { HttpService } from '../../services/http';
+import { FlexiToastService } from 'flexi-toast';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +20,9 @@ export class Login {
   readonly loading = signal<boolean>(false);
   readonly #http = inject(HttpService);
   readonly #router = inject(Router);
+  readonly email = signal<string>('');
+  readonly #toast = inject(FlexiToastService);
+  readonly closeBtn = viewChild<ElementRef<HTMLButtonElement>>('modalCloseBtn');
 
   login(form: NgForm) {
     if (!form.valid) return;
@@ -28,6 +38,17 @@ export class Login {
       },
       () => {
         this.loading.set(false);
+      }
+    );
+  }
+
+  forgotPassword() {
+    this.#http.post<string>(
+      `/rent/auth/forgot-password/${this.email()}`,
+      {},
+      (res) => {
+        this.#toast.showToast('Başarılı', res, 'info');
+        this.closeBtn()?.nativeElement.click();
       }
     );
   }
